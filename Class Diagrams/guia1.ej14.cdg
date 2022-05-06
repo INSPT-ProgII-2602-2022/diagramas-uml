@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="cafetera">
+  <ClassDiagramComponents>
+    <Class name="MaquinaCafe" package="" visibility="public" xPosition="433.0" yPosition="24.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="encendida" type="boolean" visibility="private"/>
+        <Field name="moduloAgua" type="ModuloAgua" visibility="private"/>
+        <Field name="moduloLeche" type="ModuloLeche" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="servirCafe" returnType="void" visibility="public">
+          <Argument type="TipoCafe" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ModuloAgua" package="" visibility="public" xPosition="95.0" yPosition="8.0">
+      <Fields>
+        <Field name="temperatura" type="int" visibility="private"/>
+        <Field name="requiereMantenimiento" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ModuloLeche" package="" visibility="public" xPosition="225.0" yPosition="164.0">
+      <Fields>
+        <Field name="nivel" type="int" visibility="private"/>
+        <Field name="texturaActual" type="Textura" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Textura" package="" visibility="public" xPosition="13.0" yPosition="160.0">
+      <Literals>
+        <Literal name="ESPUMOSA"/>
+        <Literal name="NORMAL"/>
+        <Literal name="LIQUIDA"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoCafe" package="" visibility="public" xPosition="445.0" yPosition="266.0">
+      <Literals>
+        <Literal name="+ EXPRESSO"/>
+        <Literal name="+ LATTE"/>
+        <Literal name="+ LAGRIMA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="usa" source="MaquinaCafe" target="TipoCafe" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="textura" source="ModuloLeche" target="Textura" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="indicadorLeche" source="MaquinaCafe" target="ModuloLeche" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="indicadorAgua" source="MaquinaCafe" target="ModuloAgua" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
