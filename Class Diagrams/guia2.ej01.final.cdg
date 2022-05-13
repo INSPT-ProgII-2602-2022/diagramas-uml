@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="resueltos.guia2.ej01">
+  <ClassDiagramComponents>
+    <Class name="Agenda" package="resueltos.guia2.ej01" visibility="public" xPosition="26.0" yPosition="96.0">
+      <Fields>
+        <Field name="personas" type="ArrayList&lt;Persona&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="listarPersonas" returnType="void" visibility="public"/>
+        <Method name="devolverUltimo" returnType="Persona" visibility="public"/>
+        <Method name="buscarPersona" returnType="Persona" visibility="public">
+          <Argument type="String" name="DNI"/>
+        </Method>
+        <Method name="agregarPersona" returnType="boolean" visibility="public">
+          <Argument type="String" name="DNI"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="ape"/>
+          <Argument type="Domicilio" name="dom"/>
+        </Method>
+        <Method name="removerPersona" returnType="Persona" visibility="public">
+          <Argument type="String" name="DNI"/>
+        </Method>
+        <Method name="modificarDomicilio" returnType="boolean" visibility="public">
+          <Argument type="String" name="DNI"/>
+          <Argument type="Domicilio" name="dom"/>
+        </Method>
+        <Method name="eliminarTodosLosElementosAMano" returnType="void" visibility="public"/>
+        <Method name="cantPersonas" returnType="int" visibility="public"/>
+        <Method name="getPersonas" returnType="ArrayList&lt;Persona&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Domicilio" package="resueltos.guia2.ej01" visibility="public" xPosition="577.0" yPosition="452.0">
+      <Fields>
+        <Field name="calle" type="String" visibility="private"/>
+        <Field name="altura" type="int" visibility="private"/>
+        <Field name="barrio" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="calle"/>
+          <Argument type="int" name="altura"/>
+          <Argument type="String" name="barrio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="resueltos.guia2.ej01" visibility="public" xPosition="548.0" yPosition="96.0">
+      <Fields>
+        <Field name="DNI" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="DNI"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="Domicilio" name="domicilio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setDomicilio" returnType="void" visibility="public">
+          <Argument type="Domicilio" name="domicilio"/>
+        </Method>
+        <Method name="getDNI" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Principal" package="resueltos.guia2.ej01" visibility="public" xPosition="164.0" yPosition="440.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="resueltos.guia2.ej01.Agenda" target="resueltos.guia2.ej01.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personas" source="resueltos.guia2.ej01.Agenda" target="resueltos.guia2.ej01.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Persona&gt;"/>
+    <UseRelation source="resueltos.guia2.ej01.Persona" target="resueltos.guia2.ej01.Domicilio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="resueltos.guia2.ej01.Agenda" target="resueltos.guia2.ej01.Domicilio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="domicilio" source="resueltos.guia2.ej01.Persona" target="resueltos.guia2.ej01.Domicilio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

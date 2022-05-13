@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="clase05">
+  <ClassDiagramComponents>
+    <Class name="Agenda" package="" visibility="public" xPosition="18.0" yPosition="21.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="listarPersonas" returnType="void" visibility="public"/>
+        <Method name="devolverUltimo" returnType="Persona" visibility="public"/>
+        <Method name="buscarPersona" returnType="Persona" visibility="public">
+          <Argument type="String" name="DNI"/>
+        </Method>
+        <Method name="agregarPersona" returnType="boolean" visibility="public">
+          <Argument type="String" name="DNI"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="ape"/>
+          <Argument type="Domicilio" name="dom"/>
+        </Method>
+        <Method name="removerPersona" returnType="Persona" visibility="public">
+          <Argument type="String" name="DNI"/>
+        </Method>
+        <Method name="modificarDomicilio" returnType="boolean" visibility="public">
+          <Argument type="String" name="DNI"/>
+          <Argument type="Domicilio" name="dom"/>
+        </Method>
+        <Method name="eliminarTodosLosElementosAMano" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="558.0" yPosition="68.0">
+      <Fields>
+        <Field name="DNI" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Domicilio" package="" visibility="public" xPosition="558.0" yPosition="313.0">
+      <Fields>
+        <Field name="calle" type="String" visibility="private"/>
+        <Field name="altura" type="int" visibility="private"/>
+        <Field name="barrio" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="domicilio" source="Persona" target="Domicilio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Agenda" target="Domicilio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personas" source="Agenda" target="Persona" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

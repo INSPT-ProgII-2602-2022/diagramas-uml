@@ -2,13 +2,10 @@
 
 <ClassDiagram name="primer-uml">
   <ClassDiagramComponents>
-    <Class name="Persona" package="" visibility="public" xPosition="276.0" yPosition="266.0">
+    <Class name="Persona" package="" visibility="public" xPosition="303.0" yPosition="325.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
-        <Field name="fechaNacimiento" type="Fecha" visibility="private"/>
-        <Field name="domicilio" type="Domicilio" visibility="private"/>
-        <Field name="lugarTrabajo" type="Empresa" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods>
@@ -26,7 +23,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Domicilio" package="" visibility="public" xPosition="496.0" yPosition="222.0">
+    <Class name="Domicilio" package="" visibility="public" xPosition="665.0" yPosition="145.0">
       <Fields>
         <Field name="calle" type="String" visibility="private"/>
         <Field name="altura" type="int" visibility="private"/>
@@ -37,20 +34,19 @@
         <Method name="untitledMethod" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Empresa" package="" visibility="public" xPosition="303.0" yPosition="24.0">
+    <Class name="Empresa" package="" visibility="public" xPosition="311.0" yPosition="26.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
-        <Field name="fechaCreacion" type="Fecha" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="lugarTrabajo" source="Persona" target="Empresa" type="Default" sourceCardinality="0..1" targetCardinality="0..1"/>
+    <HasRelation name="domicilio" source="Persona" target="Domicilio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="fechaNacimiento" source="Persona" target="Fecha" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="lugarTrabajo" source="Persona" target="Empresa" type="Default" sourceCardinality="0..1" targetCardinality="0..1"/>
     <HasRelation name="domicilio" source="Empresa" target="Domicilio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="fechaCreacion" source="Empresa" target="Fecha" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="domicilio" source="Persona" target="Domicilio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
