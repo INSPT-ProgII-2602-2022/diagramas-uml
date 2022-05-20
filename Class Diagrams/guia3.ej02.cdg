@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ej2">
+  <ClassDiagramComponents>
+    <Class name="Computadora" package="" visibility="public" xPosition="57.0" yPosition="55.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Archivo" package="" visibility="public" xPosition="57.0" yPosition="181.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="peso" type="double" visibility="private"/>
+        <Field name="localizacion" type="String" visibility="private"/>
+        <Field name="abierto" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="abrir" returnType="void" visibility="public"/>
+        <Method name="cerrar" returnType="void" visibility="public"/>
+        <Method name="mover" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ArchivoMultimedia" package="" visibility="public" isAbstract="true" xPosition="262.0" yPosition="138.0">
+      <Fields>
+        <Field name="duracion" type="int" visibility="private"/>
+        <Field name="enReproduccion" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="reproducir" returnType="void" visibility="public"/>
+        <Method name="parar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArchivoAudio" package="" visibility="public" xPosition="492.0" yPosition="91.0">
+      <Fields>
+        <Field name="artista" type="String" visibility="private"/>
+        <Field name="album" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ArchivoVideo" package="" visibility="public" xPosition="492.0" yPosition="229.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ArchivoTexto" package="" visibility="public" xPosition="262.0" yPosition="320.0">
+      <Fields>
+        <Field name="codificacion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cifrarContenido" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="FormatoVideo" package="" visibility="public" xPosition="635.0" yPosition="212.0">
+      <Literals>
+        <Literal name="MP4"/>
+        <Literal name="FLV"/>
+        <Literal name="MPG"/>
+        <Literal name="MKV"/>
+      </Literals>
+    </Enum>
+    <Enum name="FormatoAudio" package="" visibility="public" xPosition="713.0" yPosition="67.0">
+      <Literals>
+        <Literal name="WMA"/>
+        <Literal name="WAV"/>
+        <Literal name="MP3"/>
+        <Literal name="OGG"/>
+      </Literals>
+    </Enum>
+    <Class name="Dimension" package="" visibility="public" xPosition="492.0" yPosition="397.0">
+      <Fields>
+        <Field name="ancho" type="int" visibility="private"/>
+        <Field name="alto" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="ArchivoMultimedia" target="Archivo"/>
+    <HasRelation name="dimension" source="ArchivoVideo" target="Dimension" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ArchivoVideo" target="ArchivoMultimedia"/>
+    <HasRelation name="formato" source="ArchivoVideo" target="FormatoVideo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="ArchivoTexto" target="Archivo"/>
+    <HasRelation name="formato" source="ArchivoAudio" target="FormatoAudio" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="archivos" source="Computadora" target="Archivo" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="ArchivoAudio" target="ArchivoMultimedia"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

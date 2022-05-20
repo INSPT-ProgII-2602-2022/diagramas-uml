@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="resueltos.guia3.ej02">
+  <ClassDiagramComponents>
+    <Class name="Archivo" package="resueltos.guia3.ej02.archivos" visibility="public" xPosition="412.0" yPosition="10.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="peso" type="double" visibility="private"/>
+        <Field name="localizacion" type="String" visibility="private"/>
+        <Field name="abierto" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="String" name="localizacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="abrir" returnType="void" visibility="public"/>
+        <Method name="cerrar" returnType="void" visibility="public"/>
+        <Method name="mover" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArchivoAudio" package="resueltos.guia3.ej02.archivos" visibility="public" xPosition="112.0" yPosition="547.0">
+      <Fields>
+        <Field name="artista" type="String" visibility="private"/>
+        <Field name="album" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="artista"/>
+          <Argument type="String" name="album"/>
+          <Argument type="FormatoAudio" name="formato"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="String" name="localizacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ArchivoMultimedia" package="resueltos.guia3.ej02.archivos" visibility="public" isAbstract="true" xPosition="593.0" yPosition="300.0">
+      <Fields>
+        <Field name="duracion" type="int" visibility="private"/>
+        <Field name="enReproduccion" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="duracion"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="String" name="localizacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="reproducir" returnType="void" visibility="public"/>
+        <Method name="parar" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArchivoTexto" package="resueltos.guia3.ej02.archivos" visibility="public" xPosition="187.0" yPosition="300.0">
+      <Fields>
+        <Field name="codificacion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cod"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="String" name="path"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cifrarContenido" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArchivoVideo" package="resueltos.guia3.ej02.archivos" visibility="public" xPosition="855.0" yPosition="547.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Dimension" name="dimension"/>
+          <Argument type="FormatoVideo" name="formato"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="String" name="localizacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Computadora" package="resueltos.guia3.ej02" visibility="public" xPosition="925.0" yPosition="100.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarArchivo" returnType="void" visibility="public">
+          <Argument type="Archivo" name="arch"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dimension" package="resueltos.guia3.ej02" visibility="public" xPosition="996.0" yPosition="745.0">
+      <Fields>
+        <Field name="ancho" type="int" visibility="private"/>
+        <Field name="alto" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ancho"/>
+          <Argument type="int" name="alto"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="FormatoAudio" package="resueltos.guia3.ej02.archivos.formatos" visibility="public" xPosition="385.0" yPosition="745.0">
+      <Literals>
+        <Literal name="WMA"/>
+        <Literal name="WAV"/>
+        <Literal name="MP3"/>
+        <Literal name="OGG"/>
+      </Literals>
+    </Enum>
+    <Enum name="FormatoVideo" package="resueltos.guia3.ej02.archivos.formatos" visibility="public" xPosition="1232.0" yPosition="745.0">
+      <Literals>
+        <Literal name="MP4"/>
+        <Literal name="FLV"/>
+        <Literal name="MPG"/>
+        <Literal name="MKV"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="resueltos.guia3.ej02.archivos.ArchivoMultimedia" target="resueltos.guia3.ej02.archivos.Archivo"/>
+    <IsRelation name="is" source="resueltos.guia3.ej02.archivos.ArchivoAudio" target="resueltos.guia3.ej02.archivos.ArchivoMultimedia"/>
+    <HasRelation name="formato" source="resueltos.guia3.ej02.archivos.ArchivoAudio" target="resueltos.guia3.ej02.archivos.formatos.FormatoAudio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="resueltos.guia3.ej02.archivos.ArchivoVideo" target="resueltos.guia3.ej02.archivos.ArchivoMultimedia"/>
+    <HasRelation name="dimension" source="resueltos.guia3.ej02.archivos.ArchivoVideo" target="resueltos.guia3.ej02.Dimension" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="resueltos.guia3.ej02.archivos.ArchivoTexto" target="resueltos.guia3.ej02.archivos.Archivo"/>
+    <HasRelation name="formato" source="resueltos.guia3.ej02.archivos.ArchivoVideo" target="resueltos.guia3.ej02.archivos.formatos.FormatoVideo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="archivos" source="resueltos.guia3.ej02.Computadora" target="resueltos.guia3.ej02.archivos.Archivo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Archivo&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
