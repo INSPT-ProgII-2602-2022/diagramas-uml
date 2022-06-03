@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="clase07">
+  <ClassDiagramComponents>
+    <Class name="PalomaMensajera" package="" visibility="public" xPosition="49.0" yPosition="329.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="enviarMensaje" returnType="void" visibility="public">
+          <Argument type="String" name="mensaje"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ave" package="" visibility="public" xPosition="13.0" yPosition="175.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="TelefonoMovil" package="" visibility="public" xPosition="384.0" yPosition="329.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="enviarMensaje" returnType="void" visibility="public">
+          <Argument type="String" name="mensaje"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dispositivo" package="" visibility="public" xPosition="451.0" yPosition="175.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Campania" package="" visibility="public" xPosition="226.0" yPosition="13.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="hacerCampania" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Comunicador" package="" visibility="public" xPosition="201.0" yPosition="175.0">
+      <Methods>
+        <Method name="enviarMensaje" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="mensaje"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="PalomaMensajera" target="Ave"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="PalomaMensajera" target="Comunicador"/>
+    <HasRelation name="comunicadores" source="Campania" target="Comunicador" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="TelefonoMovil" target="Dispositivo"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="TelefonoMovil" target="Comunicador"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
