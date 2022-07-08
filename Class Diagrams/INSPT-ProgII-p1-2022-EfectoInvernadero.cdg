@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="AreaGelida" package="p2" visibility="public" xPosition="218.0" yPosition="441.0">
+      <Fields>
+        <Field name="porcCongelado" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="porcCongelado"/>
+          <Argument type="int" name="extension"/>
+          <Argument type="int" name="elevacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="estaEnPeligro" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AreaTundraPolar" package="p2" visibility="public" xPosition="388.0" yPosition="637.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="IntensidadViento" name="intensidadViento"/>
+          <Argument type="int" name="cantMMLlovidos"/>
+          <Argument type="int" name="extension"/>
+          <Argument type="int" name="elevacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="estaEnPeligro" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Area" package="p2" visibility="public" isAbstract="true" xPosition="413.0" yPosition="167.0">
+      <Fields>
+        <Field name="extension" type="int" visibility="private"/>
+        <Field name="elevacion" type="int" visibility="private"/>
+        <Field name="temps" type="ArrayList&lt;Double&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="extension"/>
+          <Argument type="int" name="elevacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getElevacion" returnType="int" visibility="public"/>
+        <Method name="algunaTempMayorQue" returnType="boolean" visibility="public">
+          <Argument type="double" name="cuanto"/>
+        </Method>
+        <Method name="maxTemp" returnType="double" visibility="public"/>
+        <Method name="tempPromedio" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PuntoDeControl" package="p2" visibility="public" xPosition="127.0" yPosition="205.0">
+      <Fields>
+        <Field name="areas" type="ArrayList&lt;Area&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarArea" returnType="void" visibility="public">
+          <Argument type="Area" name="a"/>
+        </Method>
+        <Method name="areasEnPeligro" returnType="int" visibility="public"/>
+        <Method name="maxTempAreasTundra" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AreaTundra" package="p2" visibility="public" xPosition="595.0" yPosition="441.0">
+      <Fields>
+        <Field name="cantMMLlovidos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="cantMMLlovidos"/>
+          <Argument type="int" name="extension"/>
+          <Argument type="int" name="elevacion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="estaEnPeligro" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Monitoreable" package="p2" visibility="public" xPosition="465.0" yPosition="24.0">
+      <Methods>
+        <Method name="estaEnPeligro" returnType="boolean" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+    <Enum name="IntensidadViento" package="p2" visibility="public" xPosition="44.0" yPosition="633.0">
+      <Literals>
+        <Literal name="LEVE"/>
+        <Literal name="MODERADO"/>
+        <Literal name="FUERTE"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="p2.AreaGelida" target="p2.Area"/>
+    <IsRelation name="is" source="p2.AreaTundraPolar" target="p2.AreaTundra"/>
+    <HasRelation name="intensidadViento" source="p2.AreaTundraPolar" target="p2.IntensidadViento" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="p2.Area" target="p2.Monitoreable"/>
+    <IsRelation name="is" source="p2.AreaTundra" target="p2.Area"/>
+    <HasRelation name="areas" source="p2.PuntoDeControl" target="p2.Area" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Area&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

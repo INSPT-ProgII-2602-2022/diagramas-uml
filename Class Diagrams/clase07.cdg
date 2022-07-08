@@ -25,7 +25,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Dispositivo" package="" visibility="public" xPosition="451.0" yPosition="175.0">
+    <Class name="Dispositivo" package="" visibility="public" xPosition="480.0" yPosition="183.0">
       <Fields/>
       <Constructors/>
       <Methods/>
@@ -47,9 +47,9 @@
   </ClassDiagramComponents>
   <ClassDiagramRelations>
     <IsRelation name="is" source="PalomaMensajera" target="Ave"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="PalomaMensajera" target="Comunicador"/>
     <HasRelation name="comunicadores" source="Campania" target="Comunicador" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
-    <IsRelation name="is" source="TelefonoMovil" target="Dispositivo"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="TelefonoMovil" target="Comunicador"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="PalomaMensajera" target="Comunicador"/>
+    <IsRelation name="is" source="TelefonoMovil" target="Dispositivo"/>
   </ClassDiagramRelations>
 </ClassDiagram>
